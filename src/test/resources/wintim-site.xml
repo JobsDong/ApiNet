@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="wintim-conf.xsl"?>
+
+<!-- Put site-specific property overrides in this file. -->
+
+<wintim-conf>
+
+<property>
+  <name>customer.config.paths</name>
+  <value></value>
+  <description>extra config files</description>
+</property>
+
+</wintim-conf>

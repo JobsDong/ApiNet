@@ -1,0 +1,133 @@
+10
+
+dir
+0
+http://s01/svn/Apiserver/branches/apinet1.0/apiserver/src/main/java/com/weizoom/apiserver/api
+http://s01/svn/Apiserver
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+de123806-ad9d-4e8c-8acc-7598050fe387
+
+IllegalApiOperateActionException.java
+file
+
+
+
+add
+
+DefaultApiResponsePropertyNameProcessor.java
+file
+
+
+
+add
+
+ApiCallMetadata.java
+file
+
+
+
+add
+
+IApiResponsePropertyNameProcessor.java
+file
+
+
+
+add
+
+Api.java
+file
+
+
+
+add
+
+DummyApiResponsePropertyNameProcessor.java
+file
+
+
+
+add
+
+IllegalApiStateException.java
+file
+
+
+
+add
+
+package-info.java
+file
+
+
+
+add
+
+IllegalApiArugmentException.java
+file
+
+
+
+add
+
+ApiOperateAction.java
+file
+
+
+
+add
+
+ApiResponse.java
+file
+
+
+
+add
+
+ApiException.java
+file
+
+
+
+add
+
+ApiLifecycle.java
+file
+
+
+
+add
+
+ApiSettings.java
+file
+
+
+
+add
+
+DuplicateApiKeyException.java
+file
+
+
+
+add
+

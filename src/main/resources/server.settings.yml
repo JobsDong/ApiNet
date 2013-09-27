@@ -1,0 +1,13 @@
+#==================================================================
+# Apiserver 配置
+
+# author: chuter
+#===================================================================
+
+#端口配置
+#server.port:8898
+server.monitor.port:8899
+
+server.customerized.apis:
+	- com.weizoom.apiserver.apis.buildin.DummyApi
+	- com.weizoom.apiserver.apis.buildin.HelloApi

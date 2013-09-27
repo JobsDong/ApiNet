@@ -1,0 +1,105 @@
+10
+
+dir
+0
+http://s01/svn/Apiserver/branches/apinet1.0/apiserver/src/main/java/com/weizoom/apiserver/cluster/exception
+http://s01/svn/Apiserver
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+de123806-ad9d-4e8c-8acc-7598050fe387
+
+ClusterException.java
+file
+
+
+
+add
+
+NoNodeException.java
+file
+
+
+
+add
+
+RegisterException.java
+file
+
+
+
+add
+
+TaskResultJsonFormatException.java
+file
+
+
+
+add
+
+TaskExecuteException.java
+file
+
+
+
+add
+
+TaskJsonFormatException.java
+file
+
+
+
+add
+
+DuplicateOperatorException.java
+file
+
+
+
+add
+
+DuplicateHandlerException.java
+file
+
+
+
+add
+
+ConnectException.java
+file
+
+
+
+add
+
+NoExecutorException.java
+file
+
+
+
+add
+
+NoAuthenticationException.java
+file
+
+
+
+add
+

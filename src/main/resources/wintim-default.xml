@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="wintim-conf.xsl"?>
+
+<!-- Put site-specific property overrides in this file. -->
+
+<wintim-conf>
+
+<property>
+  <name>system.config.paths</name>
+  <value></value>
+  <description>system config files</description>
+</property>
+
+<property>
+  <name>log.property.path</name>
+  <value>log.property</value>
+  <description>the path of topic file.</description>
+</property>
+
+</wintim-conf>

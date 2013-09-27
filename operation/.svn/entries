@@ -1,0 +1,63 @@
+10
+
+dir
+0
+http://s01/svn/Apiserver/branches/apinet1.0/apiserver/operation
+http://s01/svn/Apiserver
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+de123806-ad9d-4e8c-8acc-7598050fe387
+
+shutdown.sh
+file
+
+
+
+add
+
+operation.sh
+file
+
+
+
+add
+
+parse_server_settings.sh
+file
+
+
+
+add
+
+startup.sh
+file
+
+
+
+add
+
+status.sh
+file
+
+
+
+add
+

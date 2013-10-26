@@ -1,2 +1,4 @@
 ApiNet/target/
 ApiNet/bin/
+ApiNet/src/target/
+ApiNet/logs/run.log

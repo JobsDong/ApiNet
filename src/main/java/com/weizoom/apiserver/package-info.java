@@ -5,42 +5,42 @@
  */
 
 /**
- * <p><i>WeizoomApiserver :: apiserver</i>��˾Apiserver��ܻ���jetty��ʵ��
+ * <p><i>WeizoomApiserver :: apiserver</i>公司Apiserver框架基于jetty的实现
  * 
  * <p>
- * �ÿ��ʹ��Ƕ��ʽ��jetty��Ϊhttp���洦��ͨѶ������{@code URL}·�ɵ��ض�{@link com.weizoom.apiserver.api.Api Api}��
- * ����{@code Api}������Ӧ������֮����װ{@code Api}�Ľ�����ݷ��ظ�{@code Api}������<br>
+ * 该框架使用嵌入式的jetty作为http引擎处理通讯，根据{@code URL}路由到特定{@link com.weizoom.apiserver.api.Api Api}，
+ * 调用{@code Api}进行相应处理，之后组装{@code Api}的结果数据返回给{@code Api}调用者<br>
  * 
- * ͨѶЭ�����£�<br>
+ * 通讯协议如下：<br>
  * 
- * �ڸÿ���а�{@link com.weizoom.apiserver.api.Api Api}����Ϊ��һ���ض���Դ�Ĳ����ӿ�,
- * ��һ��{@code Api}�ķ��ʵ�{@code URL}����������Ҫ���ʵ���Դ���Լ������еĲ������ÿ����֧�ֵĶ�
- * ��Դ�Ĳ���������<br>
+ * 在该框架中把{@link com.weizoom.apiserver.api.Api Api}定义为对一个特定资源的操作接口,
+ * 对一个{@code Api}的访问的{@code URL}中描述了需要访问的资源，以及所进行的操作，该框架中支持的对
+ * 资源的操作包括：<br>
  * <ul>
- * <li>��ȡ</li>
- * <li>ɾ��</li>
- * <li>�޸�</li>
- * <li>����</li>
+ * <li>获取</li>
+ * <li>删除</li>
+ * <li>修改</li>
+ * <li>创建</li>
  * </ul>
  * 
  * <br>
- * �����ͨ��{@code URL}��Я���Ķ���Դ�Ĳ�����Ϣ��get,delete,modify,create�����߷���Э�飨GET, 
- * DELETE, PUT, POST��ʶ�����Դ�Ĳ�����Ϣ
+ * 框架中通过{@code URL}中携带的对资源的操作信息（get,delete,modify,create）或者访问协议（GET, 
+ * DELETE, PUT, POST）识别对资源的操作信息
  * 
- * ���磺<br>
+ * 例如：<br>
  * <i>http://${host}:${port}/api/tweet/get/?id=1</i><br>
- * ����<br>
+ * 或者<br>
  * <i>GET http://${host}:${port}/api/tweet/?id=1</i><br>
- * ��Ϊ������Դ<i>tweet</i>, ��������Ϊ��ȡ����ȡidΪ1��tweet��
+ * 意为访问资源<i>tweet</i>, 所做操作为获取（获取id为1的tweet）
  * <br />
  * 
- * ��ܷ��ظ��û������ݸ�ʽΪJson�����£�
+ * 框架返回给用户的数据格式为Json，如下：
  * <pre>
  * {
- *    "code":200, //(����Ϊ200,400,500)��200��ʾ�����ɹ���400��ʾ��������500��ʾ�ڲ��쳣
- *    "errMsg":"������Ϣ", //����ʾ�Ĵ�����Ϣ
- *    "innerErrMsg":"", //��debug����ϸ������Ϣ�����������쳣��ջ��Ϣ
- *    "data":{} //Api�����������ʽΪJson
+ *    "code":200, //(可以为200,400,500)，200表示操作成功，400表示参数错误，500表示内部异常
+ *    "errMsg":"错误信息", //供显示的错误信息
+ *    "innerErrMsg":"", //供debug的详细错误信息，包括整个异常堆栈信息
+ *    "data":{} //Api处理结果，格式为Json
  * }
  * </pre>
  */

@@ -1,8 +1,3 @@
-/**
- * Copyright    : Copyright (c) 2006. Wintim Corp. All rights reserved
- * File Summary : 
- * Create time  : 2012-2-10
- */
 package com.weizoom.apiserver.api;
 
 import java.io.PrintWriter;
@@ -13,11 +8,6 @@ import java.io.StringWriter;
 import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
 
-/**
- * Api调用响应结果类
- * @author chuter
- *
- */
 public final class ApiResponse {
 	
 	public static final int succeedCode = 200;

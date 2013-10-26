@@ -14,7 +14,6 @@ import org.jboss.netty.channel.MessageEvent;
 import org.jboss.netty.channel.SimpleChannelUpstreamHandler;
 
 import com.weizoom.apiserver.cluster.TaskResult;
-import com.wintim.common.util.LogFactory;
 
 /**
  * <code>PongHeartBeatHandler</code>是用于心跳机制中，接收<code>Ping</code>信息，并回送<code>Pong</code>包的<code>Handler</code>
@@ -22,7 +21,7 @@ import com.wintim.common.util.LogFactory;
  * @author wuyadong
  */
 public class PongHeartBeatHandler extends SimpleChannelUpstreamHandler {
-	final static private Logger LOG = LogFactory.getLogger(PongHeartBeatHandler.class);
+	final static private Logger LOG = Logger.getLogger(PongHeartBeatHandler.class);
 	
 	@Override
 	public void messageReceived(ChannelHandlerContext ctx, MessageEvent e)

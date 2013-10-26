@@ -37,14 +37,6 @@
 		<maven.compile.optimize>true</maven.compile.optimize>
 		<maven.compile.deprecation>true</maven.compile.deprecation>
 		
-		<!-- Libraries -->
-		<jetty-server.version>7.5.0.v20110901</jetty-server.version>
-		<jetty-io.version>7.5.0.v20110901</jetty-io.version>
-		<jetty-util.version>7.5.0.v20110901</jetty-util.version>
-		<jetty-http.version>7.5.0.v20110901</jetty-http.version>
-		<jetty-continuation.version>7.5.0.v20110901</jetty-continuation.version>
-		<jetty-websocket.version>7.5.0.v20110901</jetty-websocket.version>
-			<!-- Libraries -->
 		<junit.version>4.8.2</junit.version>
 		<log4j.version>1.2.16</log4j.version>
 		<slf4j.version>1.6.4</slf4j.version>
@@ -169,13 +161,6 @@
 				<version>${json-lib.version}</version>
 				<classifier>jdk15</classifier>
 			</dependency>
-
-			<dependency>
-  				<groupId>com.wintim.common</groupId>
-  				<artifactId>wintim-common</artifactId>
-				<version>${com.wintim-common.version}</version>
-				<scope>compile</scope>
-			</dependency>
 			
 			<dependency>
 				<groupId>io.netty</groupId>
@@ -185,16 +170,4 @@
 			
 	</dependencies>
 
-	<distributionManagement>
-		<repository>
-			<id>nexus-releases</id>
-			<name>Nexus Releases Repository</name>
-			<url>http://192.168.1.10:8081/nexus/content/repositories/releases</url>
-		</repository>
-		<snapshotRepository>
-			<id>nexus-snapshots</id>
-			<name>Nexus Snapshots Repository</name>
-			<url>http://192.168.1.10:8081/nexus/content/repositories/snapshots</url>
-		</snapshotRepository>
-	</distributionManagement>
 </project>

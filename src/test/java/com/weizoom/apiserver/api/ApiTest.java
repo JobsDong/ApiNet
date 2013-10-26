@@ -9,7 +9,6 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import com.weizoom.apiserver.api.Api;
 import com.weizoom.apiserver.api.DefaultApiResponsePropertyNameProcessor;
 import com.weizoom.apiserver.api.DummyApiResponsePropertyNameProcessor;
 import com.weizoom.apiserver.api.IApiResponsePropertyNameProcessor;
@@ -27,29 +26,29 @@ public class ApiTest {
 	private static final Api DUMM_API = new DummyApi();
 	
 	/**
-	 * ²âÊÔ¶ÔApiµ÷ÓÃ·µ»Ø½á¹ûµÄJsonµÄÓòÃû´¦ÀíÆ÷ÅäÖÃµÄ´¦Àí<br>
-	 * ĞèÒªÄÜ¹»ÕıÈ·½âÎö³öÅäÖÃµÄ´¦ÀíÆ÷
+	 * ï¿½ï¿½ï¿½Ô¶ï¿½Apiï¿½ï¿½ï¿½Ã·ï¿½ï¿½Ø½ï¿½ï¿½ï¿½Jsonï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÃµÄ´ï¿½ï¿½ï¿½<br>
+	 * ï¿½ï¿½Òªï¿½Ü¹ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÃµÄ´ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	@Test public void testResponsePropertyNameProcessorConstructing() {
-		//ÔÚÃ»ÓĞÅäÖÃÊ±£¬ÕıÈ·½á¹ûÎª·µ»ØDummyApiResponsePropertyNameProcessor
+		//ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½DummyApiResponsePropertyNameProcessor
 		Assert.assertEquals(DummyApiResponsePropertyNameProcessor.class, DUMM_API.getResponsePropertyNameProcessor().getClass());
 		
-		//ÔÚÅäÖÃÕıÈ·Ê±£¨ÅäÖÃµÄ½âÎöÆ÷Àà´æÔÚ£¬ÇÒ¾ßÓĞ¾²Ì¬µÄget·½·¨»òÕßpublicµÄÎŞ²ÎÊıµÄ¹¹ÔìÆ÷£©£¬ÕıÈ·½á¹ûÎªÄÜ¹»ÕıÈ·½âÎö³ö½âÎöÆ÷ÊµÀı
-		//1. ÅäÖÃµÄ½âÎöÆ÷¾ßÓĞ¾²Ì¬µÄget·½·¨
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ÃµÄ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½Ò¾ï¿½ï¿½Ğ¾ï¿½Ì¬ï¿½ï¿½getï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½publicï¿½ï¿½ï¿½Ş²ï¿½ï¿½ï¿½Ä¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½Îªï¿½Ü¹ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½
+		//1. ï¿½ï¿½ï¿½ÃµÄ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¾ï¿½Ì¬ï¿½ï¿½getï¿½ï¿½ï¿½ï¿½
 		Builder settingsBuilder = Settings.settingsBuilder().put(DUMM_API.getSettings());
 		settingsBuilder.put(Api.RESPONSE_FIELD_NAME_PROCESSOR_CLASS_PROPERTY, DefaultApiResponsePropertyNameProcessor.class.getName());
 		DUMM_API.resetSettings(settingsBuilder.build());
 		
 		Assert.assertEquals(DefaultApiResponsePropertyNameProcessor.class, DUMM_API.getResponsePropertyNameProcessor().getClass());
 		
-		//2. ÅäÖÃµÄ½âÎöÆ÷¾ßÓĞpublicµÄÎŞ²ÎÊıµÄ¹¹ÔìÆ÷
+		//2. ï¿½ï¿½ï¿½ÃµÄ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½publicï¿½ï¿½ï¿½Ş²ï¿½ï¿½ï¿½Ä¹ï¿½ï¿½ï¿½ï¿½ï¿½
 		settingsBuilder = Settings.settingsBuilder().put(DUMM_API.getSettings());
 		settingsBuilder.put(Api.RESPONSE_FIELD_NAME_PROCESSOR_CLASS_PROPERTY, ApiResponsePropertyNameProcessorForTest.class.getName());
 		DUMM_API.resetSettings(settingsBuilder.build());
 		Assert.assertEquals(ApiResponsePropertyNameProcessorForTest.class, DUMM_API.getResponsePropertyNameProcessor().getClass());
 		
-		//ÔÚÅäÖÃ´íÎóÊ±£¬»áÅ×³öÅäÖÃÒì³£
-		//1. ÅäÖÃµÄ½âÎöÆ÷²»Âú×ãÌõ¼ş£¨²»¿É¼û£¬Ã»ÓĞ¾²Ì¬µÄget·½·¨»ñÈ¡ÊµÀı£¬»òÕßÃ»ÓĞpublicµÄÇÒÎŞ²ÎµÄ¹¹ÔìÆ÷£©
+		//ï¿½ï¿½ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½×³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì³£
+		//1. ï¿½ï¿½ï¿½ÃµÄ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¼ï¿½Ã»ï¿½Ğ¾ï¿½Ì¬ï¿½ï¿½getï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡Êµï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½publicï¿½ï¿½ï¿½ï¿½ï¿½Ş²ÎµÄ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		settingsBuilder = Settings.settingsBuilder().put(DUMM_API.getSettings());
 		settingsBuilder.put(Api.RESPONSE_FIELD_NAME_PROCESSOR_CLASS_PROPERTY, InvalidApiResponsePropertyNameProcessorForTest.class.getName());
 		DUMM_API.resetSettings(settingsBuilder.build());
@@ -62,7 +61,7 @@ public class ApiTest {
 			Assert.assertTrue(e.getMessage().contains("Can not create the property name processor instance by class: class com.weizoom.apiserver.api.InvalidApiResponsePropertyNameProcessorForTest"));
 		}
 		
-		//2. ÅäÖÃµÄ½âÎöÆ÷Ãû´íÎó
+		//2. ï¿½ï¿½ï¿½ÃµÄ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		settingsBuilder = Settings.settingsBuilder().put(DUMM_API.getSettings());
 		settingsBuilder.put(Api.RESPONSE_FIELD_NAME_PROCESSOR_CLASS_PROPERTY, "any.way");
 		DUMM_API.resetSettings(settingsBuilder.build());

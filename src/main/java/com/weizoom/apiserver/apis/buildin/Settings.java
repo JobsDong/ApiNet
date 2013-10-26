@@ -1,8 +1,3 @@
-/**
- * Copyright    : Copyright (c) 2006. Wintim Corp. All rights reserved
- * File Summary : 
- * Create time  : 2012-4-20
- */
 package com.weizoom.apiserver.apis.buildin;
 
 import com.weizoom.apiserver.api.Api;
@@ -18,12 +13,6 @@ import com.weizoom.apiserver.util.Strings;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-/**
- * {@link com.wintim.tiger.apiserver.core.Api}
- * 
- * @author chuter
- *
- */
 public class Settings extends Api {
 
 	private static final String OPERATE_API_NAME_ATTR = "apiname";

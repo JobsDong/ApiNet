@@ -12,8 +12,8 @@ import com.weizoom.apiserver.api.ApiLifecycle.State;
 
 
 /**
- * {@link Api}ÉúÃüÖÜÆÚ×´Ì¬×ª»»µ¥Ôª²âÊÔ<br>
- * Ö§³ÖµÄ×´Ì¬×ªÒÆ£º<br>
+ * {@link Api}ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬×ªï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½<br>
+ * Ö§ï¿½Öµï¿½×´Ì¬×ªï¿½Æ£ï¿½<br>
  * <pre>
  * INITIALIZED->STARTED,STOPPED,CLOSED
  * STARTED->STOPPED
@@ -26,15 +26,15 @@ import com.weizoom.apiserver.api.ApiLifecycle.State;
 public class ApiLifecycleTest {
 	
 	/**
-	 * ²âÊÔÃ¿´ÎApi²Ù×÷³É¹¦µÄ×´Ì¬×ªÒÆ
+	 * ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½Apiï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½×´Ì¬×ªï¿½ï¿½
 	 */
 	@Test public void testApiLifecycleStateTransferingWithoutFailedOperation() {
 		DummyApi dummyApi = new DummyApi();
 		
-		//³õÊ¼×´Ì¬ÎªINITIALIZED
+		//ï¿½ï¿½Ê¼×´Ì¬ÎªINITIALIZED
 		Assert.assertEquals(State.INITIALIZED, dummyApi.lifecycleState());
 	
-		//²âÊÔ×´Ì¬×ªÒÆ£ºINITIALIZED->STARTED,CLOSED
+		//ï¿½ï¿½ï¿½ï¿½×´Ì¬×ªï¿½Æ£ï¿½INITIALIZED->STARTED,CLOSED
 		dummyApi.start();
 		Assert.assertEquals(State.STARTED, dummyApi.lifecycleState());
 		
@@ -42,44 +42,44 @@ public class ApiLifecycleTest {
 		dummyApi.close();
 		Assert.assertEquals(State.CLOSED, dummyApi.lifecycleState());
 		
-		//²âÊÔ×´Ì¬×ªÒÆ£ºSTARTED->CLOSED
+		//ï¿½ï¿½ï¿½ï¿½×´Ì¬×ªï¿½Æ£ï¿½STARTED->CLOSED
 		dummyApi = new DummyApi();
 		dummyApi.start();
 		dummyApi.close();
 		Assert.assertEquals(State.CLOSED, dummyApi.lifecycleState());
 		
-		//²âÊÔÔÚCLOSED×´Ì¬Ê±µÄ×´Ì¬×ªÒÆ
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½CLOSED×´Ì¬Ê±ï¿½ï¿½×´Ì¬×ªï¿½ï¿½
 		Assert.assertFalse(dummyApi.lifecycle().moveToClosed());
 	}
 	
 	/**
-	 * ²âÊÔApi²Ù×÷Ê§°ÜºóµÄ×´Ì¬×ªÒÆ
+	 * ï¿½ï¿½ï¿½ï¿½Apiï¿½ï¿½ï¿½ï¿½Ê§ï¿½Üºï¿½ï¿½×´Ì¬×ªï¿½ï¿½
 	 */
 	@Test public void testApiLifecycleStateTransferingWithFailedOperation() {
 		DummyApi dummyApi = new DummyApi();
 		
-		//³õÊ¼×´Ì¬ÎªINITIALIZED
+		//ï¿½ï¿½Ê¼×´Ì¬ÎªINITIALIZED
 		Assert.assertEquals(State.INITIALIZED, dummyApi.lifecycleState());
-		dummyApi.setStartFailed(true); //ÉèÖÃÆô¶¯Ê§°Ü
+		dummyApi.setStartFailed(true); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½
 		try {
 			dummyApi.start();
 			Assert.assertTrue(false);
 		} catch (ApiException e) {
 			Assert.assertEquals("Been told to be failed.", e.getMessage());
 		}
-		//Æô¶¯Ê§°Üºó»¹´¦ÓÚÔ­×´Ì¬
+		//ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Üºó»¹´ï¿½ï¿½ï¿½Ô­×´Ì¬
 		Assert.assertEquals(State.INITIALIZED, dummyApi.lifecycleState());
 		
-		//Æô¶¯³É¹¦ºó
+		//ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½
 		dummyApi.setStartFailed(false);
 		dummyApi.start();
 		Assert.assertEquals(State.STARTED, dummyApi.lifecycleState());
 		
-		//ÔÙ´ÎÆô¶¯£¬²»»á½øÐÐÈÎºÎ²Ù×÷£¬×´Ì¬²»»á·¢Éú±ä»¯
+		//ï¿½Ù´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎºÎ²ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½á·¢ï¿½ï¿½ä»¯
 		dummyApi.start();
 		Assert.assertEquals(State.STARTED, dummyApi.lifecycleState());
 		
-		//¹Ø±ÕÊ§°Üºó
+		//ï¿½Ø±ï¿½Ê§ï¿½Üºï¿½
 		dummyApi.setCloseFailed(true);
 		try {
 			dummyApi.close();
@@ -88,12 +88,12 @@ public class ApiLifecycleTest {
 			Assert.assertEquals("Been told to be failed.", e.getMessage());
 		}
 		
-		//¹Ø±Õ³É¹¦ºó
+		//ï¿½Ø±Õ³É¹ï¿½ï¿½ï¿½
 		dummyApi.setCloseFailed(false);
 		dummyApi.close();
 		Assert.assertEquals(State.CLOSED, dummyApi.lifecycleState());
 		
-		//ÔÙ´Î¹Ø±Õ»áµ¼ÖÂÒì³£
+		//ï¿½Ù´Î¹Ø±Õ»áµ¼ï¿½ï¿½ï¿½ì³£
 		try {
 			dummyApi.close();
 			Assert.assertTrue(false);

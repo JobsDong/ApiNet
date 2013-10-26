@@ -15,10 +15,9 @@ import org.jboss.netty.channel.SimpleChannelUpstreamHandler;
 import com.weizoom.apiserver.cluster.ClusterState;
 import com.weizoom.apiserver.cluster.ProxyNode;
 import com.weizoom.apiserver.cluster.constant.ResultCode;
-import com.wintim.common.util.LogFactory;
 
 public class NodeManageHandler extends SimpleChannelUpstreamHandler {
-	final private static Logger LOG = LogFactory.getLogger(NodeManageHandler.class);
+	final private static Logger LOG = Logger.getLogger(NodeManageHandler.class);
 	final private ClusterState clusterState;
 	public NodeManageHandler(ClusterState clusterState) {
 		if (clusterState == null) {

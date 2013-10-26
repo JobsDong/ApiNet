@@ -30,15 +30,13 @@ import com.weizoom.apiserver.server.ApiResponseBuilder;
 import com.weizoom.apiserver.server.ApiRouter;
 import com.weizoom.apiserver.server.ServerConfig;
 import com.weizoom.apiserver.util.ObjectsFactory;
-import com.wintim.common.util.LogFactory;
 
 /**
- * 用于执行api的executor
  * @author wuyadong
  *
  */
 public class ApiTaskExecutor implements ITaskExecutor {
-	final static private Logger LOG = LogFactory.getLogger(ApiTaskExecutor.class);
+	final static private Logger LOG = Logger.getLogger(ApiTaskExecutor.class);
 	
 	public ApiTaskExecutor() {
 		registerBuildinApis();
@@ -50,7 +48,6 @@ public class ApiTaskExecutor implements ITaskExecutor {
 	}
 	
 	public TaskResult execute(Task task) throws TaskExecuteException {
-		//0. 获取api的路径
 		String path = task.getParamJson().getString(TaskParamNames.TASK_PARAM_URI.getContent());
 		assert (path != null);
 		ApiResponse apiResponse = null;
@@ -63,7 +60,6 @@ public class ApiTaskExecutor implements ITaskExecutor {
 		ApiCallMetadata apiCallMetadata = null;
 		JSONObject apiRunJsonResult = null;
 		
-		//1. 路由api
 		if (! isOver) {
 			try {
 				targetApi = routeToApi(path);
@@ -75,7 +71,6 @@ public class ApiTaskExecutor implements ITaskExecutor {
 			}
 		}
 		
-		//2. 检查api的状态
 		if (! isOver) {
 			if (targetApi.lifecycleState() == ApiLifecycle.State.CLOSED) {
 				isOver = true;
@@ -88,14 +83,12 @@ public class ApiTaskExecutor implements ITaskExecutor {
 			}
 		}
 		
-		//3. 解析Api的参数
 		if (! isOver) {
 			paramJson = buildParamJson(task.getParamJson());
 			apiCallMetadata = parseApiCallMetadata(task.getParamJson());
 			LOG.info(String.format("op:'%s', params:'%s'", apiCallMetadata.getOperateAction(), paramJson.toString()));
 		}
 		
-		//4. 检查请求参数
 		if (! isOver) {
 			try {
 				targetApi.checkRequstParam(paramJson, apiCallMetadata.getOperateAction());
@@ -107,7 +100,6 @@ public class ApiTaskExecutor implements ITaskExecutor {
 			}
 		}
 		
-		//5. 执行api
 		if (! isOver) {
 			try {
 				apiRunJsonResult = targetApi.run(paramJson, apiCallMetadata);
@@ -130,7 +122,6 @@ public class ApiTaskExecutor implements ITaskExecutor {
 	}
 	
 	/**
-	 * 根据ApiName，路由到相应的Api
 	 * @param path
 	 * @return
 	 * @throws ApiException
@@ -156,10 +147,6 @@ public class ApiTaskExecutor implements ITaskExecutor {
 	
 	
 	/**
-	 * 根据url的path的<i>Request</i>解析Api调用的元信息
-	 * @param path
-	 * @param baseRequest
-	 * @return Api调用的元信息
 	 */
 	private ApiCallMetadata parseApiCallMetadata(JSONObject params) {
 		ApiCallMetadata apiCallMetadata = new ApiCallMetadata();
@@ -186,17 +173,12 @@ public class ApiTaskExecutor implements ITaskExecutor {
 	}
 	
 	/**
-	 * 构建相应结果，需要先对Api的结果数据的Json格式进行属性的处理
-	 * @param targetApi 是访问的api
-	 * @param apiRunJsonResult api处理结果数据
-	 * @return
 	 */
 	private ApiResponse buildApiResponse(Api targetApi, JSONObject apiRunJsonResult) {
 		if (null == apiRunJsonResult) {
 			apiRunJsonResult = new JSONObject();
 		}
 		
-		//构建需要返回的Json数据
 		JSONObject retApiJsonResult = ApiResponseBuilder.build(apiRunJsonResult, targetApi);
 		return new ApiResponse(retApiJsonResult);
 	}

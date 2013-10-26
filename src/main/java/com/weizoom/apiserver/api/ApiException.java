@@ -1,15 +1,6 @@
-/**
- * Copyright    : Copyright (c) 2006. Wintim Corp. All rights reserved
- * File Summary : 
- * Create time  : 2012-3-30
- */
 package com.weizoom.apiserver.api;
 
-/**
- * Api操作异常
- * @author chuter
- *
- */
+
 public class ApiException extends RuntimeException {
 
 	private int errorCode = -1;
@@ -63,9 +54,6 @@ public class ApiException extends RuntimeException {
 		super(String.format("failed for api:'%s', error_code:'%d' the current state is:'%s'", api.getClass().getName(), errorCode, api.lifecycleState().toString()), cause);
 	}
 	
-	/**
-     * 获取异常的详细信息，包括整个异常栈的所有异常信息
-     */
     public String getDetailedMessage() {
         if (getCause() != null) {
             StringBuilder sb = new StringBuilder();
@@ -81,9 +69,6 @@ public class ApiException extends RuntimeException {
         }
     }
 
-    /**
-     * 检索最里层的异常，如果没有返回当前异常
-     */
     public Throwable getRootCause() {
         Throwable rootCause = this;
         Throwable cause = getCause();
@@ -94,12 +79,6 @@ public class ApiException extends RuntimeException {
         return rootCause;
     }
 
-    /**
-     * 从该异常堆栈中获取指定类型的异常，如果不存在返回null
-     * 
-     * @param exType 需要寻找的异常类型
-     * @return 指定类型的异常，如果不存在则返回null
-     */
     public Throwable getSpecificExceptionType(Class<?> exType) {
     	if (null == exType) {
             return null;

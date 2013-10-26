@@ -14,8 +14,6 @@ import org.jboss.netty.channel.group.DefaultChannelGroup;
 import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
 import org.jboss.netty.handler.execution.ExecutionHandler;
 
-import com.wintim.common.util.LogFactory;
-
 /**
  * <code>BootstrapForUserRequest</code>是用于<code>cluster</code>和用户进行交互的接口<br />
  * 
@@ -30,7 +28,7 @@ class BootstrapForUserRequest {
 	 */
 	final static private int DEFAULT_BOOTSTRAP_BOSS_NUM = 1;
 	
-	final static private Logger LOG = LogFactory.getLogger(BootstrapForUserRequest.class);
+	final static private Logger LOG = Logger.getLogger(BootstrapForUserRequest.class);
 		
 	private ServerBootstrap serverBootstrap;
 	private boolean isStarted = false;

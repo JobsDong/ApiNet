@@ -20,7 +20,6 @@ import com.weizoom.apiserver.cluster.handler.LocalNodeExecuteHandler;
 import com.weizoom.apiserver.cluster.handler.codec.CompressEncoder;
 import com.weizoom.apiserver.cluster.handler.codec.TaskDecoder;
 import com.weizoom.apiserver.cluster.handler.codec.TaskResultEncoder;
-import com.wintim.common.util.LogFactory;
 
 /**
  * <code>LocalPipelineFactory</code>是用于<code>LocalNode</code>的<code>Bootstrap</code>中。
@@ -39,7 +38,7 @@ import com.wintim.common.util.LogFactory;
 public class LocalPipelineFactory implements ChannelPipelineFactory {
 	final static private long DEFAULT_PING_DELAY_TIME = 5000;
 	
-	final static private Logger LOG = LogFactory.getLogger(LocalPipelineFactory.class);
+	final static private Logger LOG = Logger.getLogger(LocalPipelineFactory.class);
 	final private ExecutionHandler executionHandler;
 	final private ScheduledExecutorService scheduledExecutorService;
 	final private LocalNode localNode;

@@ -11,10 +11,9 @@ import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.handler.codec.compression.ZlibEncoder;
 import org.jboss.netty.handler.codec.compression.ZlibWrapper;
 
-import com.wintim.common.util.LogFactory;
 
 public class CompressEncoder extends ZlibEncoder {
-	final static private Logger LOG = LogFactory.getLogger(CompressEncoder.class);
+	final static private Logger LOG = Logger.getLogger(CompressEncoder.class);
 	
 	public CompressEncoder() {
 		super(ZlibWrapper.ZLIB);

@@ -1,17 +1,7 @@
-/**
- * Copyright    : Copyright (c) 2006. Wintim Corp. All rights reserved
- * File Summary : 
- * Create time  : 2012-3-31
- */
 package com.weizoom.apiserver.api;
 
 import com.weizoom.apiserver.cluster.constant.ResultCode;
 
-/**
- * 
- * @author chuter
- *
- */
 public class IllegalApiArugmentException extends ApiException {
 
 	

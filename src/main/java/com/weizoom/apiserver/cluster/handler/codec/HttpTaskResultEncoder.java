@@ -11,7 +11,6 @@ import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.handler.codec.oneone.OneToOneEncoder;
 
 import com.weizoom.apiserver.cluster.TaskResult;
-import com.wintim.common.util.LogFactory;
 
 /**
  * <code>HttpTaskResultEncoder</code>是用于将<code>TaskResult</code>转换成httpResponse
@@ -20,7 +19,7 @@ import com.wintim.common.util.LogFactory;
  *
  */
 public class HttpTaskResultEncoder extends OneToOneEncoder {
-	final static private Logger LOG = LogFactory.getLogger(HttpTaskResultEncoder.class);
+	final static private Logger LOG = Logger.getLogger(HttpTaskResultEncoder.class);
 	
 	@Override
 	protected Object encode(ChannelHandlerContext ctx, Channel channel,

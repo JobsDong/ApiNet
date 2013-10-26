@@ -13,7 +13,6 @@ import org.jboss.netty.channel.ExceptionEvent;
 import org.jboss.netty.channel.SimpleChannelUpstreamHandler;
 import org.jboss.netty.channel.group.ChannelGroup;
 
-import com.wintim.common.util.LogFactory;
 
 /**
  * <code>channelManageHandler</code>主要是负责管理已连接的channel<br />
@@ -23,7 +22,7 @@ import com.wintim.common.util.LogFactory;
  * @author wuyadong
  */
 public class ChannelManageHandler extends SimpleChannelUpstreamHandler {
-	final static private Logger LOG = LogFactory.getLogger(ChannelManageHandler.class);
+	final static private Logger LOG = Logger.getLogger(ChannelManageHandler.class);
 	final private ChannelGroup channelGroup;
 	
 	public ChannelManageHandler(ChannelGroup channelGroup) {

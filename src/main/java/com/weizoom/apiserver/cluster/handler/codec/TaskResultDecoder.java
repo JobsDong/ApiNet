@@ -18,7 +18,6 @@ import org.jboss.netty.channel.ExceptionEvent;
 import org.jboss.netty.handler.codec.frame.FrameDecoder;
 
 import com.weizoom.apiserver.cluster.TaskResult;
-import com.wintim.common.util.LogFactory;
 
 /**
  * <code>TaskResultDecoder</code>是用于将<code>ChannelBuffer</code>转化成{@link com.weizoom.apiserver.cluster.TaskResult}
@@ -27,7 +26,7 @@ import com.wintim.common.util.LogFactory;
  *
  */
 public class TaskResultDecoder extends FrameDecoder {
-	final static private Logger LOG = LogFactory.getLogger(TaskResultDecoder.class);
+	final static private Logger LOG = Logger.getLogger(TaskResultDecoder.class);
 	private final Charset charset;
 	
 	public TaskResultDecoder(Charset charset) {

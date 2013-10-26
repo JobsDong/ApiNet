@@ -20,7 +20,6 @@ import org.jboss.netty.handler.codec.http.HttpResponse;
 
 import com.weizoom.apiserver.cluster.constant.ResultCode;
 import com.weizoom.apiserver.cluster.event.IResultListener;
-import com.wintim.common.util.LogFactory;
 
 /**
  * <code>TaskResultFuture</code>ÊÇ<code>TaskResult</code>µÄ<code>Future</code>ÃèÊö<br />
@@ -29,7 +28,7 @@ import com.wintim.common.util.LogFactory;
  *
  */
 public class TaskResultFuture extends TaskResult {
-	final static private Logger LOG = LogFactory.getLogger(TaskResultFuture.class);
+	final static private Logger LOG = Logger.getLogger(TaskResultFuture.class);
 	
 	private boolean isDone;
 	final private List<IResultListener> listeners;

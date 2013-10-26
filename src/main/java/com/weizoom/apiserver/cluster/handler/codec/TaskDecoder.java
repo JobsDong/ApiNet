@@ -23,7 +23,6 @@ import org.jboss.netty.handler.codec.http.multipart.InterfaceHttpData;
 import org.jboss.netty.handler.codec.http.multipart.InterfaceHttpData.HttpDataType;
 
 import com.weizoom.apiserver.cluster.Task;
-import com.wintim.common.util.LogFactory;
 
 /**
  * <code>TaskDecoder</code>是将ChannelBuffer转化成{@link com.weizoom.apiserver.cluster.Task}的<code>decoder</code>
@@ -31,7 +30,7 @@ import com.wintim.common.util.LogFactory;
  *
  */
 public class TaskDecoder extends FrameDecoder {
-	final static private Logger LOG = LogFactory.getLogger(TaskDecoder.class);
+	final static private Logger LOG = Logger.getLogger(TaskDecoder.class);
 	
 	final private Charset charset;
 	

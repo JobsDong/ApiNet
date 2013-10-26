@@ -22,7 +22,6 @@ import com.weizoom.apiserver.cluster.command.ClusterCommandTask;
 import com.weizoom.apiserver.cluster.command.NodeRegisterCommander;
 import com.weizoom.apiserver.cluster.common.NodeAddress;
 import com.weizoom.apiserver.cluster.constant.ResultCode;
-import com.wintim.common.util.LogFactory;
 
 /**
  * 
@@ -31,7 +30,7 @@ import com.wintim.common.util.LogFactory;
  */
 
 class RegisterChannel {
-	final static private Logger LOG = LogFactory.getLogger(RegisterChannel.class);
+	final static private Logger LOG = Logger.getLogger(RegisterChannel.class);
 	
 	private RegisterChannel() {	}
 	

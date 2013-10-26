@@ -11,8 +11,6 @@ import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.handler.codec.compression.ZlibDecoder;
 import org.jboss.netty.handler.codec.compression.ZlibWrapper;
 
-import com.wintim.common.util.LogFactory;
-
 /**
  * <code>Compressdecoder</code>是将已压缩的<code>ChannelBuffer</code>解压
  * 现在使用的是Zlib的GZIP压缩算法
@@ -20,7 +18,7 @@ import com.wintim.common.util.LogFactory;
  *
  */
 public class CompressDecoder extends ZlibDecoder {
-	final static private Logger LOG = LogFactory.getLogger(CompressDecoder.class);
+	final static private Logger LOG = Logger.getLogger(CompressDecoder.class);
 	
 	public CompressDecoder() {
 		super(ZlibWrapper.ZLIB);

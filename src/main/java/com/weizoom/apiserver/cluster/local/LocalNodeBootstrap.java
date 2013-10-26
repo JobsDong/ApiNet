@@ -25,7 +25,6 @@ import com.weizoom.apiserver.cluster.constant.ResultCode;
 import com.weizoom.apiserver.cluster.exception.ConnectException;
 import com.weizoom.apiserver.cluster.executor.ITaskExecutor;
 import com.weizoom.apiserver.cluster.handler.AuthenticationHandler;
-import com.wintim.common.util.LogFactory;
 
 /**
  * <code>local node boostrap</code>是用于数据交换的组件<br />
@@ -35,7 +34,7 @@ import com.wintim.common.util.LogFactory;
  * @author wuyadong
  */
 class LocalNodeBootstrap {
-	final static private Logger LOG = LogFactory.getLogger(LocalNodeBootstrap.class);
+	final static private Logger LOG = Logger.getLogger(LocalNodeBootstrap.class);
 	protected ClientBootstrap requestAcceptBossBootstrap;
 	private boolean isStarted = false;
 	private Channel channel;

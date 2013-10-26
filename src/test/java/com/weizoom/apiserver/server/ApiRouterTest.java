@@ -17,21 +17,21 @@ import com.weizoom.apiserver.api.ApiException;
 import com.weizoom.apiserver.api.IllegalApiArugmentException;
 
 /**
- * API路由单元测试
+ * API路锟缴碉拷元锟斤拷锟斤拷
  * @author chuter
  *
  */
 public class ApiRouterTest {
 	
 	/**
-	 * 测试对一个没有注册的API的路由
+	 * 锟斤拷锟皆讹拷一锟斤拷没锟斤拷注锟斤拷锟紸PI锟斤拷路锟斤拷
 	 */
 	@Test public void testNotExistApiRouting() {
 		Assert.assertNull(ApiRouter.route("/not_exist_api/"));
 	}
 	
 	/**
-	 * 测试对非法路径的路由
+	 * 锟斤拷锟皆对非凤拷路锟斤拷锟斤拷路锟斤拷
 	 */
 	@Test public void testInvalidPathRouting() {
 		Assert.assertNull(ApiRouter.route(null));
@@ -41,7 +41,7 @@ public class ApiRouterTest {
 	}
 	
 	/**
-	 * 测试对一个已经注册的API的路由
+	 * 锟斤拷锟皆讹拷一锟斤拷锟窖撅拷注锟斤拷锟紸PI锟斤拷路锟斤拷
 	 */
 	@Test public void testExistApiRouting() {
 		ApiManager.get().register(new Api() {
@@ -75,7 +75,7 @@ public class ApiRouterTest {
 		Assert.assertNotNull(api);
 		Assert.assertEquals("exist_api", api.getApiName());
 		
-		//注册Api名称为ExistApi, 访问路径为exist_api
+		//注锟斤拷Api锟斤拷锟轿狤xistApi, 锟斤拷锟斤拷路锟斤拷为exist_api
 		ApiManager.get().unRegister("exist_api");
 		ApiManager.get().register(new ExistApi());
 		api = ApiRouter.route("/exist_api/?key1=value1");

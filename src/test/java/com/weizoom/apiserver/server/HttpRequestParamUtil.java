@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import com.wintim.common.util.WintimConfigurer;
 
 /**
  * 发送Http请求的参数处理方法集合
@@ -20,16 +19,15 @@ import com.wintim.common.util.WintimConfigurer;
 public class HttpRequestParamUtil {
 	
 	//基本的报文头，即一般的http请求都需要的报文头
-	private static final String COMMON_HTTPREQUEST_HEADERS_STR = WintimConfigurer.get().get(
-			"common.http.request.headers",
+	private static final String COMMON_HTTPREQUEST_HEADERS_STR = 
 			"User-Agent:=Mozilla/5.0 (Windows NT 5.1; rv:9.0.1) Gecko/20100101 Firefox/9.0.1|" +
 			"Accept:=text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8|" +
 			"Accept-Language:=en-us,en;q=0.5|" +
 			"Accept-Encoding:=gzip, deflate|" +
 			"Accept-Charset:=ISO-8859-1,utf-8;q=0.7,*;q=0.7|" +
 			"Connection:=keep-alive|" +
-			"Content-Type:=application/x-www-form-urlencoded; charset=UTF-8|"
-		);
+			"Content-Type:=application/x-www-form-urlencoded; charset=UTF-8|";
+		
 	
 	private static Map<String, String> COMMON_REQUEST_HEADER_MAP = null;
 	

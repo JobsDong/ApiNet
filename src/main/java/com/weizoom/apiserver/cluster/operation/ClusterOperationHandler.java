@@ -29,7 +29,6 @@ import com.weizoom.apiserver.cluster.TaskResult;
 import com.weizoom.apiserver.cluster.constant.ResultCode;
 import com.weizoom.apiserver.cluster.exception.DuplicateOperatorException;
 import com.weizoom.apiserver.util.ObjectsFactory;
-import com.wintim.common.util.LogFactory;
 
 /**
  * {@link com.weizoom.apiserver.cluster.Cluster}ÔËÎ¬²Ù×÷µÄ<i>Handler</i><br>
@@ -48,7 +47,7 @@ import com.wintim.common.util.LogFactory;
  *
  */
 public class ClusterOperationHandler extends SimpleChannelUpstreamHandler {
-	final static private Logger LOG = LogFactory.getLogger(ClusterOperationHandler.class);
+	final static private Logger LOG = Logger.getLogger(ClusterOperationHandler.class);
 	
 	final static private Map<String, IClusterOperator> name2operator = new ConcurrentHashMap<String, IClusterOperator>();
 	

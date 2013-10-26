@@ -1,8 +1,3 @@
-/**
- * Copyright    : Copyright (c) 2006. Wintim Corp. All rights reserved
- * File Summary : 
- * Create time  : 2013-3-18
- */
 package com.weizoom.apiserver.apis.buildin;
 
 import net.sf.json.JSONObject;

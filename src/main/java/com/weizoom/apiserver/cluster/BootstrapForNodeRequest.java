@@ -13,7 +13,6 @@ import org.jboss.netty.channel.group.ChannelGroup;
 import org.jboss.netty.channel.group.DefaultChannelGroup;
 import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
 
-import com.wintim.common.util.LogFactory;
 
 /**
  * <code>BootstrapForNodeRequest</code>是专门用于处理<code>Node</code>请求的接口
@@ -22,7 +21,7 @@ import com.wintim.common.util.LogFactory;
  *
  */
 class BootstrapForNodeRequest {
-	final static private Logger LOG = LogFactory.getLogger(BootstrapForNodeRequest.class);
+	final static private Logger LOG = Logger.getLogger(BootstrapForNodeRequest.class);
 	
 	/**
 	 * 这里可以考虑使用ClusterSettings来处理

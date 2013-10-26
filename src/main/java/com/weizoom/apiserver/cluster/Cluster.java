@@ -10,7 +10,6 @@ import org.jboss.netty.handler.execution.ExecutionHandler;
 import org.jboss.netty.handler.execution.OrderedMemoryAwareThreadPoolExecutor;
 
 import com.weizoom.apiserver.cluster.balance.IBalancingStrategy;
-import com.wintim.common.util.LogFactory;
 
 /**
  * <code>cluster</code>是对整个集群的抽象描述。<br />
@@ -30,7 +29,7 @@ import com.wintim.common.util.LogFactory;
  * @author chuter & wuyadong
  */
 public class Cluster {
-	final static private Logger LOG = LogFactory.getLogger(Cluster.class);
+	final static private Logger LOG = Logger.getLogger(Cluster.class);
 	
 	private boolean isStarted = false;
 	private BootstrapForUserRequest bootstrapForUserRequest;

@@ -1,8 +1,3 @@
-/**
- * Copyright    : Copyright (c) 2006. Wintim Corp. All rights reserved
- * File Summary : 
- * Create time  : 2012-3-30
- */
 package com.weizoom.apiserver.server;
 
 import java.util.HashMap;
@@ -12,25 +7,16 @@ import org.apache.log4j.Logger;
 
 import com.weizoom.apiserver.api.Api;
 import com.weizoom.apiserver.api.DuplicateApiKeyException;
-import com.wintim.common.util.LogFactory;
 
 /**
- * 进行{@link Api}的管理类（线程安全），包括以下操作：
- * <ul>
- * <li>{@link #register(Api) 注册一个<i>Api</i>}</li>
- * <li>{@link #get(String) 通过<i>Api</i>名称获取一个<i>Api</i>}</li>
- * </ul>
- * <br>
- * 该管理类会在启动时自动注册所有系统中已经实现的<i>Api</i>
  * 
  * @author chuter
  *
  */
 public class ApiManager {
 
-	private static final Logger LOG = LogFactory.getLogger(ApiManager.class);
+	private static final Logger LOG = Logger.getLogger(ApiManager.class);
 	
-	//TODO 自动在内存紧张的时候回收处于CLOSED状态的Api
 	private static final Map<String, Api> name2api = new HashMap<String, Api>();
 	
 	private static final ApiManager SINGLETON = new ApiManager();

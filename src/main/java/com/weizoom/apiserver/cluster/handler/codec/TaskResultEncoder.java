@@ -16,7 +16,6 @@ import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.handler.codec.oneone.OneToOneEncoder;
 
 import com.weizoom.apiserver.cluster.TaskResult;
-import com.wintim.common.util.LogFactory;
 
 /**
  * <code>TaskResultEncoder</code>是用于将{@link com.weizoom.apiserver.cluster.TaskResult}转换成
@@ -26,7 +25,7 @@ import com.wintim.common.util.LogFactory;
  *
  */
 public class TaskResultEncoder extends OneToOneEncoder {
-	final static private Logger LOG = LogFactory.getLogger(TaskResultEncoder.class);
+	final static private Logger LOG = Logger.getLogger(TaskResultEncoder.class);
 	private final Charset charset;
 	
 	public TaskResultEncoder(Charset charset) {

@@ -20,7 +20,6 @@ import org.jboss.netty.channel.SimpleChannelUpstreamHandler;
 
 import com.weizoom.apiserver.cluster.Task;
 import com.weizoom.apiserver.cluster.local.LocalNode;
-import com.wintim.common.util.LogFactory;
 
 /**
  * <code>PingHeartBeatHandler</code>是专门用于客户端发起心跳<code>ping</code>的Handler<br />
@@ -33,7 +32,7 @@ import com.wintim.common.util.LogFactory;
  * @author wuyadong
  */
 public class PingHeartBeatHandler extends SimpleChannelUpstreamHandler {
-	final static private Logger LOG = LogFactory.getLogger(PingHeartBeatHandler.class);
+	final static private Logger LOG = Logger.getLogger(PingHeartBeatHandler.class);
 	
 	final private ScheduledExecutorService scheduledExecutorService;
 	final private long pingTime;

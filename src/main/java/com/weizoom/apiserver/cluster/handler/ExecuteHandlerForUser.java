@@ -19,7 +19,6 @@ import com.weizoom.apiserver.cluster.TaskResult;
 import com.weizoom.apiserver.cluster.TaskResultFuture;
 import com.weizoom.apiserver.cluster.constant.ResultCode;
 import com.weizoom.apiserver.cluster.event.IResultListener;
-import com.wintim.common.util.LogFactory;
 
 /**
  * <code>ExecuteHandlerForUser</code>是为user提供执行服务的Handler<br />
@@ -32,7 +31,7 @@ import com.wintim.common.util.LogFactory;
 public class ExecuteHandlerForUser extends SimpleChannelUpstreamHandler {
 	final static public int MAX_RETRY_COUNT = 3;
 	
-	final static private Logger LOG = LogFactory.getLogger(ExecuteHandlerForUser.class);
+	final static private Logger LOG = Logger.getLogger(ExecuteHandlerForUser.class);
 	final private MasterNode masterNode;
 	
 	public ExecuteHandlerForUser(MasterNode masterNode) {

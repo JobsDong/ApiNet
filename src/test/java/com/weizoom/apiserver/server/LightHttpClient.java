@@ -23,34 +23,23 @@ import java.util.Properties;
 import java.util.TreeMap;
 import java.util.Map.Entry;
 
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-import com.wintim.common.util.LogFactory;
-import com.wintim.common.util.WintimConfigurer;
 
 /**
- * ��������HttpClient������Http����Ŀǰֻ֧��GET��POST����<br>
- * ��ʵ��֧��ֻ��ȡ����ͷ����߻�ȡЧ�ʣ��Ҳ�֧����ת��������ĵı��봦��
  * 
  * @author chuter
  * 
  */
-//TODO ��cookie�����Ĵ���
-//TODO �ع�exute��upload���Լ����ԵĹ��췢�ͱ��ĵ�ͷ���ķ���������޶ȵ����ô���
 public class LightHttpClient {
 
-	static final Logger LOG = LogFactory.getLogger(LightHttpClient.class);
+	static final Logger LOG = Logger.getLogger(LightHttpClient.class);
 
 	public static enum Method {GET, POST};
 	
-	static int MAX_CONTENT = WintimConfigurer.get().getInt("http.content.limit", 64 * 1024);
+	static int MAX_CONTENT = 64 * 1024;
 	
 	static {
-		if (WintimConfigurer.get().getBoolean("http.verbose", false)) {
-			LOG.setLevel(Level.DEBUG);
-		}
-		
 		if (MAX_CONTENT < 0) {
 			MAX_CONTENT = Integer.MAX_VALUE;
 		}
@@ -58,10 +47,10 @@ public class LightHttpClient {
 
 	static final int BUFFER_SIZE = 8 * 1024;
 
-	static int TIMEOUT = WintimConfigurer.get().getInt("http.timeout", 10000);
-	static int UPLOAD_IMG_TIMEFACTOR = WintimConfigurer.get().getInt("upload.img.time.factor", 5);
+	static int TIMEOUT = 10000;
+	static int UPLOAD_IMG_TIMEFACTOR = 5;
 	
-	boolean onlyReadHeader = true; //�Ƿ�ֻ��ȡͷ��Ϣ
+	boolean onlyReadHeader = true; 
 
 	public void setToOnlyReadHeader(boolean isTrue) {
 		onlyReadHeader = isTrue;
@@ -81,17 +70,6 @@ public class LightHttpClient {
 		return execute(url, null, paramsMap, method);
 	}
 
-	/**
-	 * ģ��web����������ݲ���ȡweb���ؽ��
-	 * @param url ���ʵ�url
-	 * @param headersMap ���������header
-	 * @param paramsMap ������ݵĲ�����Ϣ
-	 * @param method ���ʷ���{@link #Method}
-	 * @param httpProxy ʹ�õ�http���?���Ϊnull��ʹ�ñ�����з���
-	 * 
-	 * @throws IOException ϵͳ�쳣���»�ȡ�������ʧ��
-	 * @throws ConnectException �����쳣
-	 */
 	public HttpResponse execute(
 			URL url, 
 			Map<String, String> headersMap, 
@@ -213,14 +191,6 @@ public class LightHttpClient {
 	}
 
 	/**
-	 * ģ��web����post����(�ϴ��ļ�)������ȡ���ؽ��
-	 * @param url ���ʵ�url
-	 * @param headersMap ���������header
-	 * @param postData �ϴ����ֽ�
-	 * @param httpProxy ʹ�õ�http���?���Ϊnull��ʹ�ñ�����з���
-	 * 
-	 * @throws IOException ϵͳ�쳣���»�ȡ�������ʧ��
-	 * @throws ConnectException �����쳣
 	 */
 	public HttpResponse upload(
 			URL url, 
@@ -358,14 +328,12 @@ public class LightHttpClient {
 		}
 		
 		String paramStr = encodeParamStr(paramMap);
-		String path = modifyUrlPath(url, paramStr, method); //��ݲ����޸�����·�������GET����
-		//���췢�͵ı���
+		String path = modifyUrlPath(url, paramStr, method); 
 		StringBuilder reqestBuffer = new StringBuilder(method.name()+" ");
 		reqestBuffer.append(path).append(" HTTP/1.1\r\n");
 		
 		reqestBuffer.append("Host: "+host).append(portString+"\r\n");
 		
-		//���췢�ͱ���ͷ
 		if (null == headers) {
 			headers = HttpRequestParamUtil.getCommonHttpRequestHeaders();
 		}
@@ -373,7 +341,7 @@ public class LightHttpClient {
 			reqestBuffer.append(String.format("%s: %s\r\n", headerEntry.getKey(), headerEntry.getValue()));
 		}
 		
-		if (Method.POST == method) { //�����POST������Ӳ���
+		if (Method.POST == method) { 
 			if (null != paramStr && paramStr.length() > 0) {
 				reqestBuffer.append(String.format("Content-Length: %d\r\n\r\n", paramStr.length()));
 				reqestBuffer.append(paramStr);
@@ -407,13 +375,11 @@ public class LightHttpClient {
 		}
 		
 		String path = modifyUrlPath(url, null, Method.POST);
-		//���췢�͵ı���
 		StringBuilder reqestBuffer = new StringBuilder(Method.POST.name()+" ");
 		reqestBuffer.append(path).append(" HTTP/1.1\r\n");
 		
 		reqestBuffer.append("Host: "+host).append(portString+"\r\n");
 		
-		//���췢�ͱ���ͷ
 		if (null == headers) {
 			headers = HttpRequestParamUtil.getCommonHttpRequestHeaders();
 		}
@@ -438,7 +404,7 @@ public class LightHttpClient {
 		}
 		
 		if (Method.GET == method) {
-			if (path.length() > url.getPath().length()) { //url���Ѿ����˲���
+			if (path.length() > url.getPath().length()) { 
 				path = path + "&" + paramStr;
 			} else {
 				if ('/' == path.charAt(path.length()-1)) {
@@ -468,7 +434,7 @@ public class LightHttpClient {
 			paramStrBuffer.append('&');
 		}
 		
-		if (paramStrBuffer.length() > 1) { //ɾ�����һ���ַ�
+		if (paramStrBuffer.length() > 1) {
 			paramStrBuffer.deleteCharAt(paramStrBuffer.length()-1);
 		}
 		

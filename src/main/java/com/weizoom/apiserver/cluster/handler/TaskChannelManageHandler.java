@@ -15,7 +15,6 @@ import org.jboss.netty.channel.group.ChannelGroup;
 import com.weizoom.apiserver.cluster.ClusterState;
 import com.weizoom.apiserver.cluster.ProxyNode;
 import com.weizoom.apiserver.cluster.constant.ResultCode;
-import com.wintim.common.util.LogFactory;
 
 /**
  * <code>TaskChannelManageHandler</code>是用于在BootstrapForTask中控制channelGroup<br />
@@ -24,7 +23,7 @@ import com.wintim.common.util.LogFactory;
  *
  */
 public class TaskChannelManageHandler extends ChannelManageHandler {
-	final static Logger LOG = LogFactory.getLogger(TaskChannelManageHandler.class);
+	final static Logger LOG = Logger.getLogger(TaskChannelManageHandler.class);
 	final private ClusterState clusterState;
 	
 	public TaskChannelManageHandler(ChannelGroup channelGroup, ClusterState clusterState) {

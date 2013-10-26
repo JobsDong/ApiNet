@@ -1,39 +1,5 @@
-/**
- * Copyright    : Copyright (c) 2006. Wintim Corp. All rights reserved
- * File Summary : 
- * Create time  : 2012-3-30
- */
 package com.weizoom.apiserver.api;
 
-/**
- * {@link Api}生命周期，支持以下状态转移 ：<br>
- * <pre>
- *                 start()   
- * * INITIALIZED ----------> STARTED
- *                 close()   
- * * INITIALIZED ----------> CLOSED
- *             close()   
- * * STARTED ----------> CLOSED
- * </pre>
- * 
- * <p>
- * 初始状态为INITIALIZED，结束状态为CLOSED，当一个Api状态为CLOSED状态时不允许任何操作。
- * 状态转换中允许处于原来的状态，比如当调用close()操作，下面的逻辑是可以被应用的：
- * 
- * <pre>
- * public void close() {
- * 	if (!lifeccycleState.moveToClosed()) {
- * 		return;
- * 	}
- * 	// continue with close logic
- * }
- * </pre>
- * 
- * </p>
- * 
- * @author chuter
- * 
- */
 public class ApiLifecycle {
 
 	public static enum State {
@@ -48,23 +14,14 @@ public class ApiLifecycle {
 		return this.state;
 	}
 
-	/**
-	 * Returns <tt>true</tt> if the state is initialized.
-	 */
 	public boolean initialized() {
 		return state == State.INITIALIZED;
 	}
 
-	/**
-	 * Returns <tt>true</tt> if the state is started.
-	 */
 	public boolean started() {
 		return state == State.STARTED;
 	}
 
-	/**
-	 * Returns <tt>true</tt> if the state is closed.
-	 */
 	public boolean closed() {
 		return state == State.CLOSED;
 	}

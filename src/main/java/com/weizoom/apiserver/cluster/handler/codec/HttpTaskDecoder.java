@@ -34,7 +34,6 @@ import org.jboss.netty.handler.codec.oneone.OneToOneDecoder;
 
 import com.weizoom.apiserver.cluster.Task;
 import com.weizoom.apiserver.cluster.constant.TaskParamNames;
-import com.wintim.common.util.LogFactory;
 /**
  * <code>Http task decoder</code>是用来处理从<code>HttpRequest</code>中提取出Task任务的Decoder<br />
  * 一般用于{@link com.weizoom.apiserver.cluster.ClusterPipelineFactory}中。
@@ -43,7 +42,7 @@ import com.wintim.common.util.LogFactory;
  *
  */
 public class HttpTaskDecoder extends OneToOneDecoder {
-	final static private Logger LOG = LogFactory.getLogger(HttpTaskDecoder.class);
+	final static private Logger LOG = Logger.getLogger(HttpTaskDecoder.class);
 	
 	final private Charset charset;
 	

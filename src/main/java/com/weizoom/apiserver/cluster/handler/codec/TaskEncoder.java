@@ -15,7 +15,6 @@ import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.handler.codec.oneone.OneToOneEncoder;
 
 import com.weizoom.apiserver.cluster.Task;
-import com.wintim.common.util.LogFactory;
 
 /**
  * 
@@ -23,7 +22,7 @@ import com.wintim.common.util.LogFactory;
  *
  */
 public class TaskEncoder extends OneToOneEncoder {
-	final static private Logger LOG = LogFactory.getLogger(TaskEncoder.class);
+	final static private Logger LOG = Logger.getLogger(TaskEncoder.class);
 	final private Charset charset;
 	
 	public TaskEncoder(Charset charset) {

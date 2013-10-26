@@ -1,8 +1,3 @@
-/**
- * Copyright    : Copyright (c) 2006. Wintim Corp. All rights reserved
- * File Summary : 
- * Create time  : 2012-5-15
- */
 package com.weizoom.apiserver.apis.buildin;
 
 import com.weizoom.apiserver.api.Api;
@@ -13,11 +8,6 @@ import com.weizoom.apiserver.api.IllegalApiArugmentException;
 
 import net.sf.json.JSONObject;
 
-/**
- * 
- * @author chuter
- *
- */
 public class DummyApi extends Api {
 
 	@Override

@@ -14,7 +14,6 @@ import org.jboss.netty.channel.group.DefaultChannelGroup;
 import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
 import org.jboss.netty.handler.execution.ExecutionHandler;
 
-import com.wintim.common.util.LogFactory;
 
 /**
  * <code>BootstrapForDataExchange</code>是用于集群中节点与<code>Cluster</code>的通信<br />
@@ -24,7 +23,7 @@ import com.wintim.common.util.LogFactory;
  *
  */
 class BootstrapForDataExchange {
-	final static private Logger LOG = LogFactory.getLogger(BootstrapForDataExchange.class);
+	final static private Logger LOG = Logger.getLogger(BootstrapForDataExchange.class);
 
 	//TODO 使用统一配置管理模块，处理apinet集群的配置(这里可以考虑使用ClusterSettings)
 	final static private int DEFAULT_BOOTSTRAP_BOSS_NUM = 1;

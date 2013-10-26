@@ -19,7 +19,6 @@ import com.weizoom.apiserver.cluster.Task;
 import com.weizoom.apiserver.cluster.TaskResult;
 import com.weizoom.apiserver.cluster.exception.RegisterException;
 import com.weizoom.apiserver.cluster.executor.ITaskExecutor;
-import com.wintim.common.util.LogFactory;
 
 /**
  * <code>LocalNode</code>是一个节点的描述，主要负责逻辑上的处理请求。<br />
@@ -41,7 +40,7 @@ import com.wintim.common.util.LogFactory;
  */
 //TODO 这里是executionHandler是可能有问题的，还有这个LocalNode的启动也是有问题的
 public class LocalNode extends Node {
-	final static private Logger LOG = LogFactory.getLogger(LocalNode.class);
+	final static private Logger LOG = Logger.getLogger(LocalNode.class);
 	final static private int DEFAULT_BEATHEART_CORE_SIZE = 2;
 	
 	final private ITaskExecutor taskExecutor;//任务执行器

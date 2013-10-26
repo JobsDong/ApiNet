@@ -15,7 +15,6 @@ import org.jboss.netty.channel.SimpleChannelUpstreamHandler;
 import com.weizoom.apiserver.cluster.ClusterState;
 import com.weizoom.apiserver.cluster.ProxyNode;
 import com.weizoom.apiserver.cluster.TaskResult;
-import com.wintim.common.util.LogFactory;
 
 /**
  * 用于{@link com.weizoom.apiserver.cluster.ProxyNode}的pipeline中.<br />
@@ -27,7 +26,7 @@ import com.wintim.common.util.LogFactory;
  *
  */
 public class ProxyNodeExecuteHandler extends SimpleChannelUpstreamHandler {
-	final static private Logger LOG = LogFactory.getLogger(ProxyNodeExecuteHandler.class);
+	final static private Logger LOG = Logger.getLogger(ProxyNodeExecuteHandler.class);
 	
 	final private ClusterState clusterState;
 	

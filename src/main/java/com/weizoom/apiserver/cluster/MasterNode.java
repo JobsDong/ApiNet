@@ -12,7 +12,6 @@ import com.weizoom.apiserver.cluster.balance.IBalancingStrategy;
 import com.weizoom.apiserver.cluster.common.NodeAddress;
 import com.weizoom.apiserver.cluster.constant.ResultCode;
 import com.weizoom.apiserver.cluster.exception.NoNodeException;
-import com.wintim.common.util.LogFactory;
 
 /**
  * <code>MasterNode</code>是在<code>Cluster</code>中的主节点<br />
@@ -26,7 +25,7 @@ import com.wintim.common.util.LogFactory;
  */
 //TODO 加入重试机制，错误处理等
 public class MasterNode extends Node {
-	final static private Logger LOG = LogFactory.getLogger(MasterNode.class);
+	final static private Logger LOG = Logger.getLogger(MasterNode.class);
 	
 	protected Balancing balancing = null;
 	

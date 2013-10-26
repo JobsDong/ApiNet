@@ -16,7 +16,6 @@ import org.jboss.netty.channel.SimpleChannelUpstreamHandler;
 import com.weizoom.apiserver.cluster.Task;
 import com.weizoom.apiserver.cluster.TaskResult;
 import com.weizoom.apiserver.cluster.executor.ITaskExecutor;
-import com.wintim.common.util.LogFactory;
 
 /**
  * <code>LocalNodeExecuteHandler</code>是用于{@link com.weizoom.apiserver.cluster.local.LocalNode}的
@@ -26,7 +25,7 @@ import com.wintim.common.util.LogFactory;
  *
  */
 public class LocalNodeExecuteHandler extends SimpleChannelUpstreamHandler {
-	final static private Logger LOG = LogFactory.getLogger(LocalNodeExecuteHandler.class);
+	final static private Logger LOG = Logger.getLogger(LocalNodeExecuteHandler.class);
 	
 	final private ITaskExecutor taskExecutor;
 	

@@ -1,18 +1,8 @@
-/**
- * Copyright    : Copyright (c) 2006. Wintim Corp. All rights reserved
- * File Summary : 
- * Create time  : 2012-5-12
- */
 package com.weizoom.apiserver.api;
 
 import com.weizoom.apiserver.settings.Settings;
 import com.weizoom.apiserver.settings.Settings.Builder;
 
-/**
- * 所有Api共用的配置对象
- * @author chuter
- *
- */
 public class ApiSettings {
 	private ApiSettings() {	}
 	

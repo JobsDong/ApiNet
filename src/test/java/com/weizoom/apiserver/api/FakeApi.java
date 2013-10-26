@@ -36,7 +36,7 @@ public class FakeApi extends Api {
 
 	@Override
 	public void checkRequstParam(JSONObject paramJson, ApiOperateAction apiOperateAction) throws IllegalApiArugmentException {
-		//ÐèÒªid²ÎÊý
+		//ï¿½ï¿½Òªidï¿½ï¿½ï¿½ï¿½
 		if (! paramJson.has("id")) {
 			throw new IllegalApiArugmentException("id can not be null");
 		}

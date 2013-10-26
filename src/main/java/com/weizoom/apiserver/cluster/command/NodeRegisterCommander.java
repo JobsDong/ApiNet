@@ -15,7 +15,6 @@ import com.weizoom.apiserver.cluster.NodeGroup;
 import com.weizoom.apiserver.cluster.TaskResult;
 import com.weizoom.apiserver.cluster.common.NodeAddress;
 import com.weizoom.apiserver.cluster.constant.ResultCode;
-import com.wintim.common.util.LogFactory;
 
 /**
  * <code>NodeRegisterCommander</code>是专门用于处理注册请求的Commander
@@ -29,7 +28,7 @@ import com.wintim.common.util.LogFactory;
  */
 //TODO 实现注册的过程
 public class NodeRegisterCommander implements IClusterCommander {
-	final static private Logger LOG = LogFactory.getLogger(NodeRegisterCommander.class);
+	final static private Logger LOG = Logger.getLogger(NodeRegisterCommander.class);
 	
 	final static public String COMMAND_NAME = "register_command";
 	final static public String REGISTER_HOST = "register_host";

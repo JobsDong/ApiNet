@@ -16,7 +16,6 @@ import org.jboss.netty.channel.SimpleChannelUpstreamHandler;
 import com.weizoom.apiserver.cluster.ClusterState;
 import com.weizoom.apiserver.cluster.TaskResult;
 import com.weizoom.apiserver.cluster.common.NodeAddress;
-import com.wintim.common.util.LogFactory;
 
 /**
  * 
@@ -34,7 +33,7 @@ public class AuthenticationHandler extends SimpleChannelUpstreamHandler {
 	final static public String AUTHEN_PORT = "authen_port";//认证包的port
 	final static public String AUTHEN_PATH = "authen_path";//认证包的path
 	
-	final static private Logger LOG = LogFactory.getLogger(AuthenticationHandler.class);
+	final static private Logger LOG = Logger.getLogger(AuthenticationHandler.class);
 	final private ClusterState clusterState;
 	
 	public AuthenticationHandler(ClusterState clusterState) {
